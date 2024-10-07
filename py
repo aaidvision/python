@@ -1,157 +1,159 @@
-1)data type
-m = 7001
-print(m,type(m))
-n = 664.65
-print(n,type(n))
-p = 'usaif ahamed'
-print(p,type(p))
+Ex.No:1 Different Number Data Types
 
-2)positive
-a=int(input("Enter x: "))
-if (a > 0):
-    print(a,"is positive")
+a=3
+print a
+print(type(a))
+b=5.6
+print b
+print(type(b))
+c='Noornisha'
+print c
+print(type(c))
+d=2+3j
+print d
+print(type(d))
+
+Ex. No. 2 Find the NCR values of a given number using function
+
+def nCr(n,r):
+ return(fact(n)/(fact(r)*fact(n-r)))
+def fact(n):
+ res = 1
+ for i in range (2,n+1):
+ res = res*i
+ return res
+n=int(input("enter the number n"))
+r=int(input("enter the number r"))
+print "the value is = ",int (nCr(n,r))
+
+Ex. No. 3 Print whether a num is positive/negative using if else
+
+a=int(input("enter the number "))
+if (a>0):
+print("the given number is positive")
 else:
-    print(a,"is negative")
+print("the given number is negative") 
 
-3)prime or not
-def prime(num):
-    if num <=1:
-        return False
-    for i in range(2,int(num**0.5)+1):
-        if num%i==0:
-            return False
-    return True
-number=int(input("enter the number:"))
-if prime(number):
-    print(number,"is prime")
+Ex. No.4 Find whether this given values is prime or not using if elif
+
+num = int(input("please enter any number:"))
+if (num==0 or num==1):
+ print num,"number is neither prime nor composite"
+elif num>1:
+ for i in range(2, num):
+ if(num%i)==0:
+ print num, "is not a prime number"
+ break
+ else:
+ print num, "is prime number"
 else:
-    print(number, "is not a prime number")
+ print num, "please enter the positive number only"
+
+Ex. No. 5 Compute the number of vowels, constants and words in a file.
+
+def counting(filename):
+ txt_file=open(filename,"r")
+ vowvel=0
+ line=0
+ consonants=0
+ vowvels_list=['a','e','i','o','u','A','E','I','O','U']
+ for alpha in txt_file.read():
+ if alpha in vowvels_list:
+ vowvel+=1
+ elif alpha not in vowvels_list and alpha !="\n":
+ consonants+=1
+ elif alpha=="\n":
+ line+=1
+ print"Number of vowels in=",vowvel
+ print"new lines in=",line
+ print"number of consonants in=",consonants
+counting('a.text')
 
 
-4)NCR
-n=int(input("enter n value"))
-r=int(input("enter r value"))
-def fact(x):
-    f=1
-    for i in range(1,x+1):
-        f=f*i
-    return f
-NCR=fact(n)/(fact(r)*fact(n-r))
-print("NCR value 15:",NCR)
+Ex.No. 6 Print all of the unique words in a file in alphabetical order
 
-5)Vowel
-vow=['a','e','i','o','u']
-con=[]
-for i in range(97,122):
-    if(chr(i)not in vow):
-        con.append(chr(i))
-    print(con)
-print(x)
-print(len(x))
-f=open('c.txt','r')
-m=f.read()
-x=m.split()
-v=0
-c=0
-for j in m:
-    if j in vow:
-        v+=1
-    elif j in con:
-        c+=1
-print('No.of vowels= ',v)
-print('No.of Consonants= ',c)
+infile=open('file.txt','r')
+text=infile.read()
+text=text.lower()
+words=text.split()
+words=[word.strip('.,!;()[]')for word in words]
+words=[word.replace("'s",'')for word in words]
+unique=[]
+for word in words:
+if word not in unique:
+ unique.append(word)
+unique.sort()
+print (unique)
 
-6)alpha
-f = open ("a.txt","r")
-g = f.read()
-h = g.split()
-print("Given Names (INPUT)")
-print(h)
-n = len(h)
-for i in range(0,n-1):
-    for j in range(i+1,n):
-        if(h[i]>h[j]):
-            t=h[i]
-            h[i]=h[j]
-            h[j]=t
-print("NAMES IN ALPHABETICAL ORDER")
-print(h)
+Ex. No: 7 Define a module to fine odd or even number between 1 and 100
 
-7)odd or even
-def Oddeve(x):
-    if (x%2==0):
-        print(x,"is even")
-else:
-    print(x, "is odd")
+def oddeven():
+ start,end=1,100
+ for num in range(start,end+1):
+ if(num%2)==0:
+ print("{0} is even number".format(num))
+ else:
+ print("{0} is odd number".format(num))
+oddeven()
 
+Ex. No: 8 Create a list 
 
-import pack1
-for i in range (1,10):
-    pack1.Oddeve(i)
+List = ['Mathematics', 'chemistry', 'physics', 'computer sciene','commerce']
+List.insert(2,'english') 
+print List 
+List.remove('commerce')
+print List
+List.append('tamil')
+print List
+print len(List)
+print List.pop(0)
+print len(List)
+print List
 
+Ex. No: 9 Create a tuple
 
+test_tup1=(1,3,5,7,8,9)
+test_tup2=(4,6)
+print("the original tuple1:"+str(test_tup1))
+print("the original tuple2:"+str(test_tup2))
+res=test_tup1+test_tup2
+print("the tuple after concatenation is:"+str(res))
+N=4
+res=((test_tup1,)*N)
+print("the tuple after repetition is:"+str(res))
+print("the membership of tuple1 and tuple2 is:")
+print("the number 3 in test tup1:",3 in test_tup1)
+print"the number 3 in test tup2:",3 in test_tup2
+print("Accessing the items from tuple1")
+for item in test_tup1:
+ print(item)
+stop=4
+indices=slice(stop)
+result=test_tup1[indices]
+print"sliced tuple:",result 
 
-8)class and object
-class Rect:
-    def __init__(self, B, L):
-        self.B = B
-        self.L = L
-    def area(self):
-        return self.B * self.L
-p1 = Rect(6, 5)
-print("Breadth of Rectangle =", p1.B)
-print("Length of Rectangle =", p1.L)
-print("Area of Rectangle =", p1.area())
+Ex. No: 10 Sort ascending and descending order
 
-9)sort
-fruit = {"1":"APPLE","2":"BANANA","3":"GRAPE","4":"ORANGE"}
-print(fruit)
-print("Student Values \n", fruit.values())
-print("Student Keys \n", fruit.keys())
-roll = list (fruit.values())
-roll.sort(reverse=True)
-print("Students value in reverse\n", roll)
-name = list (fruit.values())
-name.sort()
-print("Student Keys Sorted\n", name)
+y={'parveen':40,'noornisha':4,'np':1,'an':3}
+l=list(y.items())
+l.sort()
+print 'Ascending order is',l
+l=list(y.items())
+l.sort(reverse=True)
+print 'Descending order is',l
+dict=dict(l)
+print "dictionary",dict
 
+Ex. No: 11 Find the area of rectangle using class and object.
 
+class rect():
+ def __init__(self,breadth,length):
+ self.breadth=breadth
+ self.length=length
+ def area(self):
+ return self.breadth*self.length
+a=int(input("Enter breadth of rectangle:"))
+n=int(input("Enter length of rectangle:"))
+obj=rect(a,n)
+print "Area of rectangle:",obj.area()
 
-10)tuple
-v = ("ABDULLA","USAIF","SALMAAN", 47)
-print("Tuple Values:")
-print(v)
-v = v + (17,77)
-print("1.Values after Concatenation:")
-print(v)
-v = v * 2
-print("2.Values after Repetition:")
-print(v)
-w = "SALMAAN"
-print("3.Finding SALMAAN in Membership....")
-if w in v:
-    print(w, "is member of v")
-else:
-    print(w, "is not member of v")
-print("4.Accessing the Items:")
-print("Accessing 1st Item = ",v[0])
-print("Accessing 4th Item = ",v[3])
-print("5.Slicing the Values:")
-print(v[2:4])
-
-11)list
-members=["ABDULLA", "USAIF", "NASAR", "SALMAAN"]
-print("List",members)
-members.insert(2, "BASHEEER")
-print("OP:1.After inserting a new value in 2nd position")
-print("List",members)
-members.remove("USAIF")
-print("OP:2. After removing an particular element")
-print("List",members)
-members.append("AHAMED")
-print("OP:3.After adding a new element")
-print("List",members)
-print("OP:4. Total number of elementss in list", len(members))
-members.pop()
-print("OP:5.Default pop delete the last element")
-print("List",members)
