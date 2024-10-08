@@ -1,0 +1,11 @@
+List = ['Mathematics', 'chemistry', 'physics', 'computer sciene','commerce']
+List.insert(2,'english') 
+print List 
+List.remove('commerce')
+print List
+List.append('tamil')
+print List
+print len(List)
+print List.pop(0)
+print len(List)
+print List
