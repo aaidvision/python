@@ -1,17 +1,17 @@
 def counting(filename):
- txt_file=open(filename,"r")
- vowvel=0
- line=0
- consonants=0
- vowvels_list=['a','e','i','o','u','A','E','I','O','U']
- for alpha in txt_file.read():
- if alpha in vowvels_list:
- vowvel+=1
- elif alpha not in vowvels_list and alpha !="\n":
- consonants+=1
- elif alpha=="\n":
- line+=1
- print"Number of vowels in=",vowvel
- print"new lines in=",line
- print"number of consonants in=",consonants
-counting('a.text')
+  with open(filename, "r") as txt_file:
+    vowels = 0
+    lines = 0
+    consonants = 0
+    vowels_list = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']
+    for char in txt_file:
+      if char in vowels_list:
+        vowels += 1
+      elif char.isalpha() and char not in vowels_list:
+        consonants += 1
+      elif char == "\n":
+        lines += 1
+  print("Number of vowels:", vowels)
+  print("Number of new lines:", lines)
+  print("Number of consonants:", consonants)
+counting('a.txt')
